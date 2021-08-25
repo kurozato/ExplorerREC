@@ -24,7 +24,7 @@ namespace BlackSugar.Views
 
         protected Timer timer;
 
-        protected HotKeyRegister hotkeyRegister;
+        //protected HotKeyRegister hotkeyRegister;
 
         public Action OpenAction { get; set; }
 
@@ -34,15 +34,29 @@ namespace BlackSugar.Views
 
         public Action RoopAction { get; set; }
 
+        public Action ToggleHotKeyAction { get; set; }
+
+        public string ToggleHotKey { 
+            get => "hotkey" ;
+            set {
+                UIHelper.SetContextMenuItem("toggleHotKey", value, contextMenuStrip);
+            } }
+
+        private void SetItemText(string name, string text)
+        {
+            contextMenuStrip.Items[name].Text = text;
+        }
+
         public NotifyForm()
         {
             components = new System.ComponentModel.Container();
 
             contextMenuStrip = new ContextMenuStrip(components);
             contextMenuStrip.Items.AddRange(new ToolStripMenuItem[] {
-                new ToolStripMenuItem("Setting(Color)", null, (s, e) => ColorSettingAction()),
-                new ToolStripMenuItem("Open", null, (s, e) => OpenAction()),
-                new ToolStripMenuItem("Close", null, (s, e) => CloseAction()),
+                new ToolStripMenuItem("Setting(Color)", null, (s, e) => ColorSettingAction(),"colorSetting"),
+                new ToolStripMenuItem("EableHotKey", null, (s, e) => ToggleHotKeyAction(),"toggleHotKey"),
+                new ToolStripMenuItem("Open", null, (s, e) => OpenAction(), "open"),
+                new ToolStripMenuItem("Close", null, (s, e) => CloseAction(), "close"),
             });
 
             notifyIcon = new NotifyIcon(components);
@@ -50,13 +64,14 @@ namespace BlackSugar.Views
             notifyIcon.Visible = true;
             notifyIcon.Icon = Properties.Resources.hiro_s;
             notifyIcon.ContextMenuStrip = contextMenuStrip;
+            notifyIcon.Text = "ExplorerREC";
 
             timer = new Timer(components);
             timer.Interval = 1000;
             timer.Tick += (s, e) => RoopAction();
 
-            hotkeyRegister = new HotKeyRegister(this.Handle, hotKeyID, KeyModifiers.Control, Keys.R);
-            hotkeyRegister.HotKeyPressed += (s, e) => OpenAction();
+            //hotkeyRegister = new HotKeyRegister(this.Handle, hotKeyID, KeyModifiers.Control, Keys.R);
+            //hotkeyRegister.HotKeyPressed += (s, e) => OpenAction();
         }
 
         protected override void Dispose(bool disposing)
@@ -64,7 +79,7 @@ namespace BlackSugar.Views
             if (disposing && (components != null))
             {
                 components.Dispose();
-                hotkeyRegister.Dispose();
+                //hotkeyRegister.Dispose();
             }
             base.Dispose(disposing);
         }

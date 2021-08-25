@@ -16,6 +16,12 @@ namespace BlackSugar.Views
 
         Action RoopAction { get; set; }
 
+        Action ToggleHotKeyAction { get; set; }
+
+        IntPtr Handle { get; }
+
+        string ToggleHotKey { get; set; }
+
         void Exit();
 
         void SetTimerInterval(int interval);

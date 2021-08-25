@@ -35,9 +35,11 @@ namespace ExplorerRec
                     container.RegisterSingleton<IWindowChecker, WindowChecker>();
                     container.RegisterSingleton<IWindowGetter, WindowGetter>();                
                     container.RegisterSingleton<IAutomationRegister, AutomationRegister>();
+                    container.RegisterSingleton<IHotKeyNotifier, HotKeyNotifier>();
                     //Service
                     container.RegisterSingleton<IColorService, ColorService>();
                     container.RegisterSingleton<IExplorerRecService, ExplorerRecService>();
+                    container.RegisterSingleton<INotifyService, NotifyService>();
                     //View
                     container.RegisterSingleton<INotifyView, NotifyForm>();
                     container.RegisterWindowsForm<IRecListView, RecListForm>();
@@ -50,12 +52,13 @@ namespace ExplorerRec
                     container.Verify();
                 });
 
-            XApplication.Configure(resolver);
+            Router.Configure(resolver);
 
             var setting = resolver.Resolve<IGeneralSetting>();
             setting.Interval = 1000;
+            setting.MaxRowsCount = 30;
 
-            var view = XApplication.NavigateTo<INotifyView>();
+            var view = Router.NavigateTo<INotifyView>();
        
             view.TimerStart();
 

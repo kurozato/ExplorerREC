@@ -38,6 +38,14 @@ namespace BlackSugar.Utility
             };
         }
 
+        public static void SetContextMenuItem(string name, string text, ContextMenuStrip contextMenuStrip)
+        {
+            foreach (ToolStripMenuItem item in contextMenuStrip.Items.Find(name, true))
+            {
+                item.Text = text;
+            }
+        }
+
         public static Control FindControl(string key, Control target)
         {
             foreach (Control control in target.Controls.Find(key, true))

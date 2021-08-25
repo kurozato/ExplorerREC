@@ -37,4 +37,4 @@ Where ID In(
     Inner join ExplorerRecodes_INDEX Main_Index On 
         Main_Index.Recode_ID = Main.ID 
     Where 
-        Main_Index.ROWID > 30);
+        Main_Index.ROWID > @MaxRowsCount);

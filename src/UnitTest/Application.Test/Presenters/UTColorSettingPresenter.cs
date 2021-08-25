@@ -32,10 +32,10 @@ namespace Application.Test
             var resolver = new DependencyResolver();
             resolver.Set(Container);
 
-            XApplication.Configure(resolver);
+            Router.Configure(resolver);
 
 
-            XApplication.NavigateTo<IColorSettingView>();
+            Router.NavigateTo<IColorSettingView>();
 
             TestTarget = resolver.Resolve<IPresenter<IColorSettingView>>() as ColorSettingPresenter;
         }

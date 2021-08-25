@@ -13,6 +13,8 @@ namespace BlackSugar.Repository
         string RecodePath { get; }
 
         int Interval { get; set; }
+
+        int MaxRowsCount { get; set; }
     }
 
     public class GeneralSetting : IGeneralSetting
@@ -25,7 +27,8 @@ namespace BlackSugar.Repository
         public string RecodePath => System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, FILENAME_RECODE);
 
         public int Interval { get; set; }
-        
+
+        public int MaxRowsCount { get; set; }
     }
 
 

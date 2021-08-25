@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using BlackSugar.Entity;
 using BlackSugar.Repository;
 
-
 namespace BlackSugar.Service
 {
     public interface IExplorerRecService
@@ -67,6 +66,7 @@ namespace BlackSugar.Service
             var command = Properties.Resources.RegistExplorerRecodes;
             command = command.Replace("@Name", window.Name.Replace("'", "''"));
             command = command.Replace("@Path", window.Path.Replace("'", "''"));
+            command = command.Replace("@MaxRowsCount", _setting.MaxRowsCount.ToString());
 
             _dbCommander.Execute(command);
         }

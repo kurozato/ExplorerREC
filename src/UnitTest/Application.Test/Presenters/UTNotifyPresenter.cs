@@ -24,7 +24,7 @@ namespace Application.Test
             AddMockContainer<ILogWriter>();
             //
             AddMockContainer<IColorService>();
-            AddMockContainer<IExplorerRecService>();
+            AddMockContainer<INotifyService>();
             //
             AddMockContainer<INotifyView>();
             AddMockContainer<IRecListView>();
@@ -39,12 +39,12 @@ namespace Application.Test
             var resolver = new DependencyResolver();
             resolver.Set(Container);
 
-            XApplication.Configure(resolver);
+            Router.Configure(resolver);
 
             var mockSetting = GetMock<IGeneralSetting>();
             mockSetting.Setup(m => m.Interval).Returns(1000);
 
-            XApplication.NavigateTo<INotifyView>();
+            Router.NavigateTo<INotifyView>();
 
             TestTarget = resolver.Resolve<IPresenter<INotifyView>>() as NotifyPresenter;
         }
@@ -82,12 +82,25 @@ namespace Application.Test
             presenter.Invoke("RoopResult", null);
 
             var mockView = GetMock<INotifyView>();
-            var mockService = GetMock<IExplorerRecService>();
+            var mockService = GetMock<INotifyService>();
 
             mockService.Verify(m => m.CheckWindow(), Times.Once);
             mockView.Verify(v => v.TimerStop(), Times.Once);
             mockView.Verify(v => v.TimerStart(), Times.Once);
         }
 
+        [TestMethod]
+        public void UTToggleHotKeyResult()
+        {
+            var presenter = GetPrivateTestTarget();
+
+            presenter.Invoke("ToggleHotKeyResult", null);
+
+            var mockView = GetMock<INotifyView>();
+            var mockService = GetMock<INotifyService>();
+            
+            mockService.Verify(m => m.ToggleHotKey(It.IsAny<IntPtr>(), It.IsAny<Action>()), Times.Once);
+            
+        }
     }
 }

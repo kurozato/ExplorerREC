@@ -32,10 +32,10 @@ namespace Application.Test
             var resolver = new DependencyResolver();
             resolver.Set(Container);
 
-            XApplication.Configure(resolver);
+            Router.Configure(resolver);
 
     
-            XApplication.NavigateTo<IRecListView>();
+            Router.NavigateTo<IRecListView>();
 
             TestTarget = resolver.Resolve<IPresenter<IRecListView>>() as RecListPresenter;
         }

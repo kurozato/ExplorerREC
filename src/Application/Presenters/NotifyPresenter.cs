@@ -14,14 +14,15 @@ namespace BlackSugar.Presenters
 {
     public class NotifyPresenter : PresenterBase<INotifyView>
     {
-        protected IExplorerRecService _service;
+        //protected IExplorerRecService _service;
+        protected INotifyService _service;
 
         protected IGeneralSetting _setting;
 
         protected ILogWriter _logWriter;
 
         public NotifyPresenter(
-            IExplorerRecService service, 
+            INotifyService service, 
             IGeneralSetting setting,
             ILogWriter logWriter)
         {
@@ -39,6 +40,7 @@ namespace BlackSugar.Presenters
             _view.OpenAction = () => OpenResult();
             _view.ColorSettingAction = () => ColorSettingResult();
             _view.RoopAction = () => RoopResult();
+            _view.ToggleHotKeyAction = () => ToggleHotKeyResult();
         }
 
         private void CloseResult()
@@ -47,11 +49,11 @@ namespace BlackSugar.Presenters
         }
         private void OpenResult()
         {
-            XApplication.NavigateTo<IRecListView>(false);
+            Router.NavigateTo<IRecListView>(false);
         }
         private void ColorSettingResult()
         {
-            XApplication.NavigateTo<IColorSettingView>(false);
+            Router.NavigateTo<IColorSettingView>(false);
         }
         private void RoopResult()
         {
@@ -69,6 +71,14 @@ namespace BlackSugar.Presenters
             {
                 _view.TimerStart();
             }
+        }
+
+        private void ToggleHotKeyResult()
+        {
+            if (_service.ToggleHotKey(_view.Handle, _view.OpenAction))
+                _view.ToggleHotKey = "DisableHotKey";
+            else
+                _view.ToggleHotKey = "EableHotKey";
         }
     }
 }

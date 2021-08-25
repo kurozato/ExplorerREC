@@ -53,6 +53,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,11 +68,13 @@
     <Compile Include="DbCommander.cs" />
     <Compile Include="FileWriterReader.cs" />
     <Compile Include="GeneralSetting.cs" />
+    <Compile Include="HotKeyNotifier.cs" />
     <Compile Include="LogWriter.cs" />
     <Compile Include="Model\ColorInfo.cs" />
     <Compile Include="Model\ExplorerWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\FolderInfo.cs" />
+    <Compile Include="Utility\HotKeyRegister.cs" />
     <Compile Include="WindowChecker.cs" />
     <Compile Include="WindowGetter.cs" />
   </ItemGroup>
