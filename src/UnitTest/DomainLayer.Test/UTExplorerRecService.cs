@@ -32,29 +32,6 @@ namespace DomainLayer.Test
         }
 
         [TestMethod]
-        public void UTCheckWindow()
-        {
-            var service = TestTarget;
-            var mockWindowGetter = GetMock<IWindowGetter>();
-            var mockWindowChecker = GetMock<IWindowChecker>();
-            var mockAutomationRegister = GetMock<IAutomationRegister>();
-
-            var handle = IntPtr.Zero;
-            mockWindowGetter.Setup(x => x.GetActiveWindowHandle())
-                .Returns(handle);
-
-            mockWindowChecker.Setup(x => x.IsExplorer(handle))
-                .Returns(true);
-
-            service.CheckWindow();
-
-            mockWindowGetter.Verify(x => x.GetExplorerWindow(It.IsAny<IntPtr>()), Times.Once);
-
-            mockAutomationRegister.Verify(x => x.RegistWindowCloesd(It.IsAny<IntPtr>(), It.IsAny<Action>()), Times.Once);
-        }
-
-
-        [TestMethod]
         public void UTInitialize()
         {
             var service = TestTarget;

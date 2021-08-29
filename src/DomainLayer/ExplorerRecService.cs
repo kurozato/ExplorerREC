@@ -12,9 +12,7 @@ namespace BlackSugar.Service
     {
         List<ExplorerWindow> GetExplorerWindows();
 
-        void CheckWindow();
-
-        void Initialize();
+         void Initialize();
 
         bool OpenWindow(ExplorerWindow window);
     }
@@ -45,30 +43,9 @@ namespace BlackSugar.Service
             _setting = setting ?? throw new ArgumentNullException(nameof(setting)); 
         }
 
-        public void CheckWindow()
-        {
-            var handle = _windowGetter.GetActiveWindowHandle();
-            if (_windowChecker.IsExplorer(handle))
-            {
-                _window = _windowGetter.GetExplorerWindow(handle);
-
-                _automationRegister.RegistWindowCloesd(handle, () => UpdateRecode(_window));
-            }
-        }
-
         public void Initialize()
         {
             _dbCommander.Execute(Properties.Resources.CreateTable_ExplorerRecodes);
-        }
-
-        private void UpdateRecode(ExplorerWindow window)
-        {
-            var command = Properties.Resources.RegistExplorerRecodes;
-            command = command.Replace("@Name", window.Name.Replace("'", "''"));
-            command = command.Replace("@Path", window.Path.Replace("'", "''"));
-            command = command.Replace("@MaxRowsCount", _setting.MaxRowsCount.ToString());
-
-            _dbCommander.Execute(command);
         }
 
         public List<ExplorerWindow> GetExplorerWindows()
