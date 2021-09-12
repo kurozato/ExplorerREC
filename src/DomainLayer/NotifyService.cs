@@ -33,14 +33,15 @@ namespace BlackSugar.Service
             IWindowGetter windowGetter,
             IAutomationRegister automationRegister,
             IDbCommander dbCommander,
-            IHotKeyNotifier hotKeyNotifier)
+            IHotKeyNotifier hotKeyNotifier,
+            IGeneralSetting setting)
         {
             _windowChecker = windowChecker ?? throw new ArgumentNullException(nameof(windowChecker));
             _windowGetter = windowGetter ?? throw new ArgumentNullException(nameof(windowGetter));
             _automationRegister = automationRegister ?? throw new ArgumentNullException(nameof(automationRegister));
             _dbCommander = dbCommander ?? throw new ArgumentNullException(nameof(dbCommander));
             _hotKeyNotifier = hotKeyNotifier ?? throw new ArgumentNullException(nameof(hotKeyNotifier));
-            //_setting = setting ?? throw new ArgumentNullException(nameof(setting));
+            _setting = setting ?? throw new ArgumentNullException(nameof(setting));
 
         }
 

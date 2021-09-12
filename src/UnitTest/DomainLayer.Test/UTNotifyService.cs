@@ -22,13 +22,16 @@ namespace DomainLayer.Test
             AddMockContainer<IAutomationRegister>();
             AddMockContainer<IDbCommander>();
             AddMockContainer<IHotKeyNotifier>();
+            AddMockContainer<IGeneralSetting>();
+
 
             TestTarget = new NotifyService(
                 GetMock<IWindowChecker>().Object,
                 GetMock<IWindowGetter>().Object,
                 GetMock<IAutomationRegister>().Object,
                 GetMock<IDbCommander>().Object,
-                GetMock<IHotKeyNotifier>().Object);
+                GetMock<IHotKeyNotifier>().Object,
+                GetMock<IGeneralSetting>().Object);
         }
 
         [TestMethod]
