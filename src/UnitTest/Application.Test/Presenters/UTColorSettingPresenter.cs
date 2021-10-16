@@ -60,12 +60,15 @@ namespace Application.Test
             var presenter = GetPrivateTestTarget();
             var theme = ColorTheme.Light;
             var pattern = GradationPattern.Monotone;
+          
 
-            presenter.Invoke("SettingResult", new { theme, pattern });
+            presenter.Invoke("SettingResult", new { theme, pattern});
 
             var mockService = GetMock<IColorService>();
+            var mockView = GetMock<IColorSettingView>();
+
             mockService.Verify(s => s.GetColorInfo(theme, pattern), Times.Once);
-            mockService.Verify(s => s.Save(It.IsAny<ColorInfo>()), Times.Once);
+            mockService.Verify(s => s.Save(It.IsAny<ColorInfo>(), It.IsAny<IGeneralSetting>()), Times.Once);
 
         }
     }

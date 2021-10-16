@@ -10,6 +10,8 @@ namespace BlackSugar.Service
 {
     public interface IColorService
     {
+        IGeneralSetting GetSetting();
+
         ColorInfo GetColorInfo();
 
         ColorInfo GetColorInfo(ColorTheme theme, GradationPattern pattern);
@@ -18,7 +20,7 @@ namespace BlackSugar.Service
 
         Dictionary<ColorTheme, ColorInfo> GetColorThemes();
 
-        void Save(ColorInfo colorInfo);
+        void Save(ColorInfo colorInfo, IGeneralSetting setting);
     }
 
     public class ColorService : IColorService
@@ -37,6 +39,11 @@ namespace BlackSugar.Service
             _fileWriter = fileWriter ?? throw new ArgumentNullException(nameof(fileWriter));
             _fileReader = fileReader ?? throw new ArgumentNullException(nameof(fileReader));
             _setting = setting ?? throw new ArgumentNullException(nameof(setting));
+        }
+
+        public IGeneralSetting GetSetting()
+        {
+            return _setting;
         }
 
         public ColorInfo GetColorInfo()
@@ -72,9 +79,10 @@ namespace BlackSugar.Service
             return themes;
         }
 
-        public void Save(ColorInfo colorInfo)
+        public void Save(ColorInfo colorInfo, IGeneralSetting setting)
         {
             _fileWriter.Write(_setting.SettingPath + "Color", colorInfo);
+            _fileWriter.Write(_setting.SettingPath, setting);
         }
 
         public ColorInfo GetColorInfo(ColorTheme theme, GradationPattern pattern)

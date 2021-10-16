@@ -26,6 +26,7 @@ namespace BlackSugar.Presenters
             _view.ColorInfo = _service.GetColorInfo();
             _view.GradationInfo = _service.GetGradationPatterns();
             _view.ThemeInfo = _service.GetColorThemes();
+            _view.Setting = _service.GetSetting();
 
             _view.SettingAction = (t, p) => SettingResult(t, p);
         }
@@ -33,7 +34,7 @@ namespace BlackSugar.Presenters
         private void SettingResult(ColorTheme theme, GradationPattern pattern)
         {
             var colorInfo = _service.GetColorInfo(theme, pattern);
-            _service.Save(colorInfo);
+            _service.Save(colorInfo, _view.Setting);
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BlackSugar.SimpleMvp.WinForm;
 using BlackSugar.Utility;
 using BlackSugar.Entity;
+using BlackSugar.Repository;
 using System.Drawing.Drawing2D;
 
 namespace BlackSugar.Views
@@ -21,6 +22,8 @@ namespace BlackSugar.Views
         private ColorTheme _theme;
 
         private ColorInfo _colorInfo;
+
+        private IGeneralSetting _setting;
 
         private Dictionary<GradationPattern, ColorInfo> _gradationInfo;
 
@@ -101,6 +104,15 @@ namespace BlackSugar.Views
             UIHelper.SetWindowTitleBar(this, this);
             UIHelper.SetWindowTitleBar(lblTitle1, this);
             UIHelper.SetWindowTitleBar(lblTitle2, this);
+
+            txtInterval.KeyPress += (s, e) => {
+                if ((e.KeyChar < '0' || '9' < e.KeyChar) && e.KeyChar != '\b')         
+                    e.Handled = true;              
+            };
+            txtMaxRowsCount.KeyPress += (s, e) => {
+                if ((e.KeyChar < '0' || '9' < e.KeyChar) && e.KeyChar != '\b')
+                    e.Handled = true;
+            };
         }
 
         private void SelectTheme(ColorTheme theme)
@@ -114,6 +126,20 @@ namespace BlackSugar.Views
             _theme = theme;
 
             PerformLayout();
+        }
+
+        public IGeneralSetting Setting 
+        { 
+            get {
+                _setting.Interval = Convert.ToInt32(txtInterval.Text);
+                _setting.MaxRowsCount = Convert.ToInt32(txtMaxRowsCount.Text);
+                return _setting;
+            }
+            set { 
+                _setting = value;
+                txtInterval.Text = _setting.Interval.ToString();
+                txtMaxRowsCount.Text = _setting.MaxRowsCount.ToString();
+            } 
         }
 
         public ColorInfo ColorInfo
@@ -154,9 +180,14 @@ namespace BlackSugar.Views
         private void InitializeColor(ColorInfo colorInfo)
         {
             UIHelper.SetColor(this, null, colorInfo.DarkColor);
+            UIHelper.SetColor(lblTitle0, colorInfo.ForeColor, null);
             UIHelper.SetColor(lblTitle1, colorInfo.ForeColor, null);
             UIHelper.SetColor(lblTitle2, colorInfo.ForeColor, null);
             UIHelper.SetColor(lblOr, colorInfo.ForeColor, null);
+            UIHelper.SetColor(lblInterval, colorInfo.ForeColor, null);
+            UIHelper.SetColor(lblMaxRowsCount, colorInfo.ForeColor, null);
+            UIHelper.SetColor(lblUnit1, colorInfo.ForeColor, null);
+            UIHelper.SetColor(lblUnit2, colorInfo.ForeColor, null);
             UIHelper.SetColor(btnClose, colorInfo.ForeColor, colorInfo.LightColor);
             UIHelper.SetColor(btnOK, colorInfo.ForeColor, colorInfo.LightColor);
 

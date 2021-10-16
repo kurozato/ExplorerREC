@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BlackSugar.Repository;
 
 namespace BlackSugar.Views
 {
@@ -14,6 +14,8 @@ namespace BlackSugar.Views
     //    void Show();
 
     //    DialogResult ShowDialog();
+
+        IGeneralSetting Setting { get; set; }
 
         ColorInfo ColorInfo { get; set; }
 

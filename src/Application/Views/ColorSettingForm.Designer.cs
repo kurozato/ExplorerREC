@@ -35,7 +35,6 @@
             this.btnLight = new System.Windows.Forms.Button();
             this.lblOr = new System.Windows.Forms.Label();
             this.pnlGroupMonotone = new System.Windows.Forms.Panel();
-            this.lblMonotone = new System.Windows.Forms.Label();
             this.pnlMonotone = new System.Windows.Forms.Panel();
             this.pnlSideMonotone = new System.Windows.Forms.Panel();
             this.lblTitle2 = new System.Windows.Forms.Label();
@@ -56,6 +55,14 @@
             this.pnlSideViolet = new System.Windows.Forms.Panel();
             this.lblViolet = new System.Windows.Forms.Label();
             this.pnlViolet = new System.Windows.Forms.Panel();
+            this.txtInterval = new BlackSugar.Controls.PlaceholderTextBox();
+            this.txtMaxRowsCount = new BlackSugar.Controls.PlaceholderTextBox();
+            this.lblTitle0 = new System.Windows.Forms.Label();
+            this.lblMonotone = new System.Windows.Forms.Label();
+            this.lblInterval = new System.Windows.Forms.Label();
+            this.lblMaxRowsCount = new System.Windows.Forms.Label();
+            this.lblUnit1 = new System.Windows.Forms.Label();
+            this.lblUnit2 = new System.Windows.Forms.Label();
             this.pnlGroupMonotone.SuspendLayout();
             this.pnlGroupOrange.SuspendLayout();
             this.pnlGroupBlue.SuspendLayout();
@@ -80,7 +87,7 @@
             // 
             this.lblTitle1.AutoSize = true;
             this.lblTitle1.Font = new System.Drawing.Font("メイリオ", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblTitle1.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle1.Location = new System.Drawing.Point(12, 136);
             this.lblTitle1.Name = "lblTitle1";
             this.lblTitle1.Size = new System.Drawing.Size(85, 27);
             this.lblTitle1.TabIndex = 3;
@@ -91,7 +98,7 @@
             this.btnDark.FlatAppearance.BorderSize = 0;
             this.btnDark.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDark.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnDark.Location = new System.Drawing.Point(220, 39);
+            this.btnDark.Location = new System.Drawing.Point(220, 166);
             this.btnDark.Name = "btnDark";
             this.btnDark.Size = new System.Drawing.Size(91, 40);
             this.btnDark.TabIndex = 4;
@@ -103,7 +110,7 @@
             this.btnLight.FlatAppearance.BorderSize = 0;
             this.btnLight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLight.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnLight.Location = new System.Drawing.Point(31, 39);
+            this.btnLight.Location = new System.Drawing.Point(31, 166);
             this.btnLight.Name = "btnLight";
             this.btnLight.Size = new System.Drawing.Size(91, 40);
             this.btnLight.TabIndex = 5;
@@ -114,7 +121,7 @@
             // 
             this.lblOr.AutoSize = true;
             this.lblOr.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblOr.Location = new System.Drawing.Point(152, 45);
+            this.lblOr.Location = new System.Drawing.Point(152, 172);
             this.lblOr.Name = "lblOr";
             this.lblOr.Size = new System.Drawing.Size(25, 23);
             this.lblOr.TabIndex = 6;
@@ -125,20 +132,10 @@
             this.pnlGroupMonotone.Controls.Add(this.lblMonotone);
             this.pnlGroupMonotone.Controls.Add(this.pnlMonotone);
             this.pnlGroupMonotone.Controls.Add(this.pnlSideMonotone);
-            this.pnlGroupMonotone.Location = new System.Drawing.Point(31, 123);
+            this.pnlGroupMonotone.Location = new System.Drawing.Point(31, 267);
             this.pnlGroupMonotone.Name = "pnlGroupMonotone";
             this.pnlGroupMonotone.Size = new System.Drawing.Size(330, 56);
             this.pnlGroupMonotone.TabIndex = 7;
-            // 
-            // lblMonotone
-            // 
-            this.lblMonotone.AutoSize = true;
-            this.lblMonotone.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblMonotone.Location = new System.Drawing.Point(10, 2);
-            this.lblMonotone.Name = "lblMonotone";
-            this.lblMonotone.Size = new System.Drawing.Size(82, 23);
-            this.lblMonotone.TabIndex = 9;
-            this.lblMonotone.Text = "Monotone";
             // 
             // pnlMonotone
             // 
@@ -158,7 +155,7 @@
             // 
             this.lblTitle2.AutoSize = true;
             this.lblTitle2.Font = new System.Drawing.Font("メイリオ", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblTitle2.Location = new System.Drawing.Point(12, 93);
+            this.lblTitle2.Location = new System.Drawing.Point(12, 237);
             this.lblTitle2.Name = "lblTitle2";
             this.lblTitle2.Size = new System.Drawing.Size(180, 27);
             this.lblTitle2.TabIndex = 8;
@@ -171,7 +168,7 @@
             this.btnOK.FlatAppearance.BorderSize = 0;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("メイリオ", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnOK.Location = new System.Drawing.Point(2, 447);
+            this.btnOK.Location = new System.Drawing.Point(2, 604);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(92, 37);
             this.btnOK.TabIndex = 9;
@@ -183,7 +180,7 @@
             this.pnlGroupOrange.Controls.Add(this.lblOrange);
             this.pnlGroupOrange.Controls.Add(this.pnlOrange);
             this.pnlGroupOrange.Controls.Add(this.pnlSideOrange);
-            this.pnlGroupOrange.Location = new System.Drawing.Point(31, 185);
+            this.pnlGroupOrange.Location = new System.Drawing.Point(31, 329);
             this.pnlGroupOrange.Name = "pnlGroupOrange";
             this.pnlGroupOrange.Size = new System.Drawing.Size(330, 56);
             this.pnlGroupOrange.TabIndex = 10;
@@ -217,7 +214,7 @@
             this.pnlGroupBlue.Controls.Add(this.lblBlue);
             this.pnlGroupBlue.Controls.Add(this.pnlBlue);
             this.pnlGroupBlue.Controls.Add(this.pnlSideBlue);
-            this.pnlGroupBlue.Location = new System.Drawing.Point(31, 247);
+            this.pnlGroupBlue.Location = new System.Drawing.Point(31, 391);
             this.pnlGroupBlue.Name = "pnlGroupBlue";
             this.pnlGroupBlue.Size = new System.Drawing.Size(330, 56);
             this.pnlGroupBlue.TabIndex = 11;
@@ -251,7 +248,7 @@
             this.pnlGroupGreen.Controls.Add(this.lblGreen);
             this.pnlGroupGreen.Controls.Add(this.pnlSideGreen);
             this.pnlGroupGreen.Controls.Add(this.pnlGreen);
-            this.pnlGroupGreen.Location = new System.Drawing.Point(31, 309);
+            this.pnlGroupGreen.Location = new System.Drawing.Point(31, 453);
             this.pnlGroupGreen.Name = "pnlGroupGreen";
             this.pnlGroupGreen.Size = new System.Drawing.Size(330, 56);
             this.pnlGroupGreen.TabIndex = 10;
@@ -285,7 +282,7 @@
             this.pnlGroupViolet.Controls.Add(this.pnlSideViolet);
             this.pnlGroupViolet.Controls.Add(this.lblViolet);
             this.pnlGroupViolet.Controls.Add(this.pnlViolet);
-            this.pnlGroupViolet.Location = new System.Drawing.Point(31, 371);
+            this.pnlGroupViolet.Location = new System.Drawing.Point(31, 515);
             this.pnlGroupViolet.Name = "pnlGroupViolet";
             this.pnlGroupViolet.Size = new System.Drawing.Size(330, 56);
             this.pnlGroupViolet.TabIndex = 10;
@@ -314,11 +311,100 @@
             this.pnlViolet.Size = new System.Drawing.Size(326, 16);
             this.pnlViolet.TabIndex = 8;
             // 
+            // txtInterval
+            // 
+            this.txtInterval.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtInterval.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.txtInterval.Location = new System.Drawing.Point(156, 47);
+            this.txtInterval.Name = "txtInterval";
+            this.txtInterval.Placeholder = "Input Number...";
+            this.txtInterval.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtInterval.Size = new System.Drawing.Size(137, 29);
+            this.txtInterval.TabIndex = 12;
+            // 
+            // txtMaxRowsCount
+            // 
+            this.txtMaxRowsCount.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtMaxRowsCount.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.txtMaxRowsCount.Location = new System.Drawing.Point(156, 82);
+            this.txtMaxRowsCount.Name = "txtMaxRowsCount";
+            this.txtMaxRowsCount.Placeholder = "Input Number...";
+            this.txtMaxRowsCount.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtMaxRowsCount.Size = new System.Drawing.Size(137, 29);
+            this.txtMaxRowsCount.TabIndex = 13;
+            // 
+            // lblTitle0
+            // 
+            this.lblTitle0.AutoSize = true;
+            this.lblTitle0.Font = new System.Drawing.Font("メイリオ", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblTitle0.Location = new System.Drawing.Point(12, 14);
+            this.lblTitle0.Name = "lblTitle0";
+            this.lblTitle0.Size = new System.Drawing.Size(88, 27);
+            this.lblTitle0.TabIndex = 14;
+            this.lblTitle0.Text = "- Setting";
+            // 
+            // lblMonotone
+            // 
+            this.lblMonotone.AutoSize = true;
+            this.lblMonotone.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblMonotone.Location = new System.Drawing.Point(10, 2);
+            this.lblMonotone.Name = "lblMonotone";
+            this.lblMonotone.Size = new System.Drawing.Size(82, 23);
+            this.lblMonotone.TabIndex = 9;
+            this.lblMonotone.Text = "Monotone";
+            // 
+            // lblInterval
+            // 
+            this.lblInterval.AutoSize = true;
+            this.lblInterval.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblInterval.Location = new System.Drawing.Point(72, 53);
+            this.lblInterval.Name = "lblInterval";
+            this.lblInterval.Size = new System.Drawing.Size(78, 23);
+            this.lblInterval.TabIndex = 15;
+            this.lblInterval.Text = "Interval :";
+            // 
+            // lblMaxRowsCount
+            // 
+            this.lblMaxRowsCount.AutoSize = true;
+            this.lblMaxRowsCount.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblMaxRowsCount.Location = new System.Drawing.Point(31, 88);
+            this.lblMaxRowsCount.Name = "lblMaxRowsCount";
+            this.lblMaxRowsCount.Size = new System.Drawing.Size(119, 23);
+            this.lblMaxRowsCount.TabIndex = 16;
+            this.lblMaxRowsCount.Text = "KeepRecodes :";
+            // 
+            // lblUnit1
+            // 
+            this.lblUnit1.AutoSize = true;
+            this.lblUnit1.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblUnit1.Location = new System.Drawing.Point(299, 53);
+            this.lblUnit1.Name = "lblUnit1";
+            this.lblUnit1.Size = new System.Drawing.Size(31, 23);
+            this.lblUnit1.TabIndex = 17;
+            this.lblUnit1.Text = "ms";
+            // 
+            // lblUnit2
+            // 
+            this.lblUnit2.AutoSize = true;
+            this.lblUnit2.Font = new System.Drawing.Font("メイリオ", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblUnit2.Location = new System.Drawing.Point(299, 88);
+            this.lblUnit2.Name = "lblUnit2";
+            this.lblUnit2.Size = new System.Drawing.Size(44, 23);
+            this.lblUnit2.TabIndex = 18;
+            this.lblUnit2.Text = "rows";
+            // 
             // ColorSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(363, 485);
+            this.ClientSize = new System.Drawing.Size(363, 642);
+            this.Controls.Add(this.lblUnit2);
+            this.Controls.Add(this.lblUnit1);
+            this.Controls.Add(this.lblMaxRowsCount);
+            this.Controls.Add(this.lblInterval);
+            this.Controls.Add(this.lblTitle0);
+            this.Controls.Add(this.txtMaxRowsCount);
+            this.Controls.Add(this.txtInterval);
             this.Controls.Add(this.pnlGroupViolet);
             this.Controls.Add(this.pnlGroupGreen);
             this.Controls.Add(this.pnlGroupBlue);
@@ -360,7 +446,6 @@
         private System.Windows.Forms.Label lblOr;
         private System.Windows.Forms.Panel pnlGroupMonotone;
         private System.Windows.Forms.Label lblTitle2;
-        private System.Windows.Forms.Label lblMonotone;
         private System.Windows.Forms.Panel pnlMonotone;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Panel pnlGroupOrange;
@@ -380,5 +465,13 @@
         private System.Windows.Forms.Panel pnlSideBlue;
         private System.Windows.Forms.Panel pnlSideGreen;
         private System.Windows.Forms.Panel pnlSideViolet;
+        private Controls.PlaceholderTextBox txtInterval;
+        private Controls.PlaceholderTextBox txtMaxRowsCount;
+        private System.Windows.Forms.Label lblMonotone;
+        private System.Windows.Forms.Label lblTitle0;
+        private System.Windows.Forms.Label lblInterval;
+        private System.Windows.Forms.Label lblMaxRowsCount;
+        private System.Windows.Forms.Label lblUnit1;
+        private System.Windows.Forms.Label lblUnit2;
     }
 }

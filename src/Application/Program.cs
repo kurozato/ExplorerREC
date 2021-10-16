@@ -54,10 +54,6 @@ namespace ExplorerRec
 
             Router.Configure(resolver);
 
-            var setting = resolver.Resolve<IGeneralSetting>();
-            setting.Interval = 1000;
-            setting.MaxRowsCount = 30;
-
             var view = Router.NavigateTo<INotifyView>();
        
             view.TimerStart();
