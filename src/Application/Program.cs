@@ -27,10 +27,11 @@ namespace ExplorerRec
                 container =>
                 { 
                     //Repository
-                    container.RegisterSingleton<IGeneralSetting, GeneralSetting>();
                     container.RegisterSingleton<ILogWriter, LogWriter>();
                     container.RegisterSingleton<IFileReader, FileReader>();
                     container.RegisterSingleton<IFileWriter, FileWriter>();
+
+                    container.RegisterSingleton<IGeneralSetting, GeneralSetting>();
                     container.RegisterSingleton<IDbCommander, DbCommander>();
                     container.RegisterSingleton<IWindowChecker, WindowChecker>();
                     container.RegisterSingleton<IWindowGetter, WindowGetter>();                
